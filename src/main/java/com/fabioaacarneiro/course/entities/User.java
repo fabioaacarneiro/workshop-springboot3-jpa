@@ -4,13 +4,19 @@
  */
 package com.fabioaacarneiro.course.entities;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+import org.hibernate.annotations.ManyToAny;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import java.io.Serializable;
-import java.util.Objects;
 
 /**
  *
@@ -29,6 +35,9 @@ public class User implements Serializable {
     private String email;
     private String phone;
     private String password;
+
+    @OneToMany(mappedBy = "client")
+    private List<Order> orders = new ArrayList<>();
 
     public User() {
     }
@@ -60,6 +69,10 @@ public class User implements Serializable {
     public String getPassword() {
         return password;
     }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
     
     @Override
     public String toString() {
@@ -86,5 +99,9 @@ public class User implements Serializable {
         }
         final User other = (User) obj;
         return Objects.equals(this.id, other.id);
+    }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
     }
 }
