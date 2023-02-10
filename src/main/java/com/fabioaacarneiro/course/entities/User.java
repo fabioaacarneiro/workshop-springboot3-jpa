@@ -87,8 +87,4 @@ public class User implements Serializable {
         final User other = (User) obj;
         return Objects.equals(this.id, other.id);
     }
-
-    
-    
-    
 }
