@@ -1,13 +1,11 @@
 package com.fabioaacarneiro.course.services;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.fabioaacarneiro.course.entities.User;
 import com.fabioaacarneiro.course.repositories.UserRepository;
+import java.util.List;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
@@ -26,5 +24,9 @@ public class UserService {
     
     public User insert(User obj) {
         return repository.save(obj);
+    }
+    
+    public void delete(Long id) {
+        repository.deleteById(id);
     }
 }
