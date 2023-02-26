@@ -24,14 +24,14 @@ import java.util.Objects;
 @Entity
 @Table(name = "tb_payment")
 public class Payment implements Serializable {
-    
+
     private static final Long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Instant moment;
-    
+
     @JsonIgnore
     @OneToOne
     @MapsId
@@ -91,7 +91,4 @@ public class Payment implements Serializable {
         final Payment other = (Payment) obj;
         return Objects.equals(this.id, other.id);
     }
-    
-    
-    
 }

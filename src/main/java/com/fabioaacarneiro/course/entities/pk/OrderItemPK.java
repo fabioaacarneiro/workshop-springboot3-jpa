@@ -1,9 +1,6 @@
 package com.fabioaacarneiro.course.entities.pk;
 
 import java.io.Serializable;
-
-import org.hibernate.annotations.ManyToAny;
-
 import com.fabioaacarneiro.course.entities.Order;
 import com.fabioaacarneiro.course.entities.Product;
 
@@ -64,7 +61,4 @@ public class OrderItemPK implements Serializable {
             return false;
         return true;
     }
-
-    
-    
 }
